@@ -1,4 +1,5 @@
 import {RouterConfiguration, Router} from 'aurelia-router';
+import {PLATFORM} from 'aurelia-pal';
 
 export class App {
   message = 'Hello World!';
@@ -9,7 +10,8 @@ export class App {
     this.router = router;
     config.title = 'Aurelia';
     config.map([
-      { route: ['', 'about'],       name: 'about',       moduleId: 'about' }
+      // { route: ['', 'about'],       name: 'about',       moduleId: 'about' }
+      { route: ['', 'about'], name: 'about', moduleId: PLATFORM.moduleName('about')}
     ]);
   }
 
