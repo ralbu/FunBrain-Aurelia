@@ -10,8 +10,11 @@ export class App {
     this.router = router;
     config.title = 'Aurelia';
     config.map([
+      {route: '', redirect: 'users'},
+      // { route: 'about',  moduleId: 'about', name:'about' }
+      {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/user-list'),  title: 'Users'}
       // { route: ['', 'about'],       name: 'about',       moduleId: 'about' }
-      { route: ['', 'about'], name: 'about', moduleId: PLATFORM.moduleName('about')}
+      // { route: ['', 'about'], name: 'about', moduleId: PLATFORM.moduleName('about')}
     ]);
   }
 
