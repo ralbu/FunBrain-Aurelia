@@ -2,7 +2,7 @@ import {RouterConfiguration, Router} from 'aurelia-router';
 import {PLATFORM} from 'aurelia-pal';
 
 export class App {
-  message = 'Hello World!';
+  message = 'main app';
 
   router: Router;
 
@@ -11,9 +11,13 @@ export class App {
     config.title = 'Aurelia';
     config.map([
       {route: '', redirect: 'users'},
-      // { route: 'about',  moduleId: 'about', name:'about' }
-      {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/user-list'),  title: 'Users'}
+      {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/list'),  title: 'Users', nav: true},
+      {route: 'users/create', name: 'create-user', moduleId: PLATFORM.moduleName('./users/create'),  title: 'Create user', nav: true}
+      {route: 'users/edit', name: 'edit-user', moduleId: PLATFORM.moduleName('./users/edit'),  title: 'Edit user', nav: true}
+      
+      // {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/user-list'),  title: 'Users'}
       // { route: ['', 'about'],       name: 'about',       moduleId: 'about' }
+      // { route: 'about',  moduleId: 'about', name:'about' }
       // { route: ['', 'about'], name: 'about', moduleId: PLATFORM.moduleName('about')}
     ]);
   }
