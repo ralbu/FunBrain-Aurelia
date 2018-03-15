@@ -4,13 +4,15 @@
 
     <div class="field">
       <label for="nameInput">Name</label>
-      <input type="text"
+      <input value.bind="user.name"
+             type="text"
              id="nameInput"
              placeholder="Name"
              name="name"
              required>
       <label for="emailInput">Email</label>
-      <input type="text"
+      <input value.bind="user.email"
+             type="text"
              id="emailInput"
              placeholder="Email"
              name="email">
