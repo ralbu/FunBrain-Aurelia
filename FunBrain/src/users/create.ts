@@ -1,9 +1,8 @@
 import UserModel from "./user-model";
-import {bindable} from "aurelia-framework";
 
 export class UserCreate{
 
-  @bindable user = new UserModel();
+ user = new UserModel();
 
   constructor() {
     // this.user = new UserModel();
