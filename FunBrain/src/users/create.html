@@ -1,7 +1,8 @@
 <template>
   <require from="./edit-component"></require>
   <div>
-    <edit-component></edit-component>
+    <h2>user is: ${user.name}</h2>
+    <edit-component user.bind="user"></edit-component>
   </div>
 
   <h2>Create user</h2>
