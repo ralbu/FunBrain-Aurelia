@@ -1,4 +1,24 @@
 <template>
+  <div>
+    <!--<div><a [routerLink]="'create'">Create user</a> </div>-->
+    <table class="ui table celled">
+      <thead>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      </thead>
+      <tbody>
+      <tr repeat.for="user of users">
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        <!--<td><a [routerLink]="['/edit-user', user.id]" href="#">Edit</a></td>-->
+        <td><a href="#">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
   <h2>User list</h2>
   <p>User</p>
 </template>

@@ -1,12 +1,19 @@
 import UserService from "./user-service";
 import {autoinject} from "aurelia-framework";
+import UserModel from "./user-model";
 
 @autoinject
-export class UserList{
+export class UserList {
 
+  private userService: UserService;
+  private users: UserModel[];
 
-  constructor(userService: UserService){
+  constructor(userService: UserService) {
+    this.userService = userService
+  }
 
-    console.log('user', userService.getUsers());
+  async activate() {
+    // this.users = await this.userService.getUsers();
+    this.users = await this.userService.fetchUsers();
   }
 }
