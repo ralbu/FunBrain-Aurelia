@@ -1,12 +1,10 @@
 <template>
   <require from="app.css"></require>
-  <h1>${message}</h1>
 
-  <!--<router-view></router-view>-->
+  <div class="ui three item menu">
+    <a repeat.for="nav of router.navigation" class="item ${nav.isActive ? 'active': ''}" href.bind="nav.href">${nav.title}</a>
+  </div>
 
-  <ul repeat.for="nav of router.navigation">
-    <li class="${nav.isActive ? 'active' : ''}"><a href.bind="nav.href">${nav.title}</a></li>
-  </ul>
   <router-view></router-view>
 
 
