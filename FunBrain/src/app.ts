@@ -12,7 +12,8 @@ export class App {
       {route: '', redirect: 'users'},
       {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/list'),  title: 'Users', nav: true},
       {route: 'users/create', name: 'create-user', moduleId: PLATFORM.moduleName('./users/create'),  title: 'Create user', nav: true},
-      {route: 'users/edit', name: 'edit-user', moduleId: PLATFORM.moduleName('./users/edit'),  title: 'Edit user', nav: true}
+      {route: 'users/:id/edit', name: 'edit-user', moduleId: PLATFORM.moduleName('./users/edit'),  title: 'Edit user'},
+      {route: 'users', name: 'start-game', moduleId: PLATFORM.moduleName('./users/list'),  title: 'Start game', nav:true}
 
       // {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/user-list'),  title: 'Users'}
       // { route: ['', 'about'],       name: 'about',       moduleId: 'about' }

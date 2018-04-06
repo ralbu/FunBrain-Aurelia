@@ -32,4 +32,13 @@ export default class UserService {
       .then(u => users = u);*/
 
   }
+
+  public async getUserBy(id: number): Promise<UserModel> {
+
+    let userUrl = `users/${id}`;
+    let response = await this.httpClient.fetch(userUrl);
+    let user = response.json();
+
+    return user;
+  }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!--<div><a [routerLink]="'create'">Create user</a> </div>-->
-    <table class="ui table celled">
+    <h2>User list</h2>
+    <table class="ui table celled striped ">
       <thead>
       <th>Name</th>
       <th>Email</th>
@@ -12,13 +12,13 @@
       <tr repeat.for="user of users">
         <td>${user.name}</td>
         <td>${user.email}</td>
-        <!--<td><a [routerLink]="['/edit-user', user.id]" href="#">Edit</a></td>-->
+        <td>
+          <a class="green" route-href="route: edit-user; params.bind:{id: user.id}">Edit</a>
+        </td>
         <td><a href="#">Delete</a></td>
       </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>User list</h2>
-  <p>User</p>
 </template>
