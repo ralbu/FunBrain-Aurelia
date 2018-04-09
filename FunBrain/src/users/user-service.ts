@@ -33,6 +33,13 @@ export default class UserService {
 
   }
 
+  public getUser(id: number): Promise<UserModel>{
+    let user: UserModel;
+    return this.httpClient.fetch(`users/${id}`)
+      .then(response => response.json())
+      .then(u => user = u);
+  }
+
   public async getUserBy(id: number): Promise<UserModel> {
 
     let userUrl = `users/${id}`;

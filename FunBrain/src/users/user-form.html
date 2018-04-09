@@ -1,5 +1,22 @@
 <template bindable="user">
   <div class="ui raised segment">
+    <h2 class="ui header">Edit User</h2>
+    <div class="ui form">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value.bind="user.name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" value.bind="user.email">
+      </div>
+    </div>
+  </div>
+</template>
+
+<!--
+<template bindable="user">
+  <div class="ui raised segment">
     <h2 class="ui header">User</h2>
 
     <div class="field">
@@ -19,3 +36,4 @@
     </div>
   </div>
 </template>
+-->
