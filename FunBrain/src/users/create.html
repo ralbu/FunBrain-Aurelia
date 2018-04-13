@@ -1,11 +1,11 @@
 <template>
 
   <require from="./user-form"></require>
-  <p>a</p>
-  <div>
-    <h2>user is: ${user.name}</h2>
-    <user-form user.bind="user"></user-form>
-  </div>
 
-  <h2>Create user</h2>
+  <form submit.delegate="save(user)">
+    <user-form user.bind="user"></user-form>
+    <button type="submit" class="ui button primary">Save user</button>
+    <a route-href="route:users">Cancel</a>
+  </form>
+
 </template>

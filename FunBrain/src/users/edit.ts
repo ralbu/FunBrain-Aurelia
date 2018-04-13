@@ -14,30 +14,14 @@ export class UserEdit {
     this.router = router;
   }
 
-/*  activate(params, config){
-     this.userService.getUser(params.id)
-      .then(u => this.user = u);
-  }*/
-
   async activate(params, config) {
     let user = await this.userService.getUserBy(params.id);
     this.user = user;
     return user;
     }
-    
-    /*
-    // console.log('user is: ', user);
 
-    // console.log('Id is:', params.id);
-    // console.log('params', params);
-    // console.log('config', config);
-  }
-  */
-    
-    
     async save(user){
-      console.log('SAve', user);
-      await this.userService.SaveUser(user);
+      await this.userService.createUser(user);
       this.router.navigateToRoute("users");
     }
 }

@@ -13,8 +13,6 @@ export class UserList {
   }
 
   async activate() {
-    // this.users = await this.userService.getUsers();
-    this.users = await this.userService.fetchUsers();
-    console.log('fetch', this.users);
+    this.users = await this.userService.getUsers();
   }
 }
