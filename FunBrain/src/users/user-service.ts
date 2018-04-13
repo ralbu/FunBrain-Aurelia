@@ -1,6 +1,7 @@
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 import {autoinject} from 'aurelia-framework';
 import UserModel from "./user-model";
+import {SpawnSyncReturns} from "child_process";
 
 @autoinject
 export default class UserService {
@@ -9,7 +10,7 @@ export default class UserService {
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
-    this.httpClient.configure(c => c.withBaseUrl('http://localhost:64885/api/'));
+    this.httpClient.configure(c => c.withBaseUrl('http://localhost:64884/api/'));
   }
 
 
@@ -18,6 +19,16 @@ export default class UserService {
     let response = await this.httpClient.fetch('users');
     return await response.json();
 
+  }
+
+  public async SaveUser(user: UserModel): Promise<Response> {
+
+    let userUrl = `users`;
+     return await this.httpClient.fetch(userUrl, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: json(user)
+    });
   }
 
   public async getUsers(): Promise<UserModel[]> {
@@ -48,4 +59,15 @@ export default class UserService {
 
     return user;
   }
+
+
+
+  updatePhoto(id, file) {
+    return this.httpClient.fetch(`contacts/${id}/photo`, {
+      method: 'PUT',
+      headers: { 'Content-Type': file.type },
+      body: file
+    });
+  }
+
 }

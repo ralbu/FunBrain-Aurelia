@@ -35,8 +35,9 @@ export class UserEdit {
   */
     
     
-    save(){
-      console.log('SAve');
+    async save(user){
+      console.log('SAve', user);
+      await this.userService.SaveUser(user);
       this.router.navigateToRoute("users");
     }
 }
