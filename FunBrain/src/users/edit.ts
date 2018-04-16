@@ -21,7 +21,7 @@ export class UserEdit {
     }
 
     async save(user){
-      await this.userService.createUser(user);
+      await this.userService.updateUser(user);
       this.router.navigateToRoute("users");
     }
 }
