@@ -15,17 +15,34 @@
         <td>
           <a class="green" route-href="route: edit-user; params.bind:{id: user.id}">Edit</a>
         </td>
-        <td><a href="#">Delete</a></td>
+        <td><a href="#" click.delegate="delete()">Delete</a></td>
       </tr>
       </tbody>
     </table>
   </div>
 
-  <div>
-    <h6>Testing components</h6>
-    <div class="ui icon button" data-content="Add users to your feed">
-      <i class="add icon"></i>
-    </div>
-  </div>
+  <!--<div>-->
+    <!--<h6>Testing components</h6>-->
+    <!--<div class="ui icon button" data-content="Add users to your feed">-->
+      <!--<i class="add icon"></i>-->
+    <!--</div>-->
+  <!--</div>-->
+
+
+  <div id="delete-modal" ref="deleteModalParent" class="ui dimmer modals page transition hidden ${isModal ? 'visible active': ''}">
+    <div id="delete-modal" class="ui standard test modal transition hidden ${isModal ? 'visible active': ''}">
+      <div class="header">
+        Select a Photo
+      </div>
+      <div class="actions">
+        <div class="ui black deny button" click.delegate="closeDialog()">
+          Nope
+        </div>
+        <div class="ui positive right labeled icon button">
+          Yep, that's me
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div></div>
 
 </template>
