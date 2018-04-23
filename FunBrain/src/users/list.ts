@@ -8,9 +8,11 @@ export class UserList {
   private userService: UserService;
   private users: UserModel[];
 
-  cl = "visible active";
-  cl2 = "visible active"
+  // cl = "visible active";
+  // cl2 = "visible active"
   private isModal: boolean;
+  private modalStyleParent: string = '';
+  private modalStyleInner: string = '';
 
   constructor(userService: UserService) {
     this.userService = userService
@@ -20,15 +22,25 @@ export class UserList {
     this.users = await this.userService.getUsers();
   }
 
-  delete() {
+  showModal() {
     this.isModal = true;
-
-    console.log('Delte');
-    let modal = this.deleteModalParent;
-    console.log('modal', modal);
+    this.modalStyleParent = 'display: flex !important;';
+    this.modalStyleInner = 'display: block !important;';
   }
 
-  closeDialog(){
+  async deleteUser() {
+    this.noModal();
+
+    await this.userService.deleteUser(1);
+  }
+
+  closeDialog(): void {
+    this.noModal();
+  }
+
+  private noModal(): void {
     this.isModal = false;
+    this.modalStyleParent = '';
+    this.modalStyleInner = '';
   }
 }

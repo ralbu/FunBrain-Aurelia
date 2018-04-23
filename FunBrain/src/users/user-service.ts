@@ -27,6 +27,15 @@ export default class UserService {
     return user;
   }
 
+  public async createUser(user: UserModel): Promise<Response> {
+    let userUrl = `users`;
+    return await this.httpClient.fetch(userUrl, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: json(user)
+    });
+  }
+
   public async updateUser(user: UserModel): Promise<Response> {
     let userUrl = `users/${user.id}`;
     return await this.httpClient.fetch(userUrl, {
@@ -36,14 +45,14 @@ export default class UserService {
     });
   }
 
-  public async createUser(user: UserModel): Promise<Response> {
-    let userUrl = `users`;
+  public async deleteUser(userId: number): Promise<Response> {
+    let userUrl = `users/${userId}`;
+
     return await this.httpClient.fetch(userUrl, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: json(user)
-    });
+      method: 'DELETE'
+    })
   }
+
 
   public getUser(id: number): Promise<UserModel> {
     let user: UserModel;

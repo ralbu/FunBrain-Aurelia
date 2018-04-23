@@ -15,34 +15,62 @@
         <td>
           <a class="green" route-href="route: edit-user; params.bind:{id: user.id}">Edit</a>
         </td>
-        <td><a href="#" click.delegate="delete()">Delete</a></td>
+        <td><a href="#" click.delegate="showModal()">Delete</a></td>
       </tr>
       </tbody>
     </table>
   </div>
 
   <!--<div>-->
-    <!--<h6>Testing components</h6>-->
-    <!--<div class="ui icon button" data-content="Add users to your feed">-->
-      <!--<i class="add icon"></i>-->
-    <!--</div>-->
+  <!--<h6>Testing components</h6>-->
+  <!--<div class="ui icon button" data-content="Add users to your feed">-->
+  <!--<i class="add icon"></i>-->
+  <!--</div>-->
   <!--</div>-->
 
 
-  <div id="delete-modal" ref="deleteModalParent" class="ui dimmer modals page transition hidden ${isModal ? 'visible active': ''}">
-    <div id="delete-modal" class="ui standard test modal transition hidden ${isModal ? 'visible active': ''}">
+  <div class="ui dimmer modals page transition hidden ${isModal ? 'visible active': ''}" style.bind="modalStyleParent">
+    <div class="ui tiny test modal transition hidden ${isModal ? 'visible active': ''}" style.bind="modalStyleInner">
       <div class="header">
-        Select a Photo
+        Delete User
+      </div>
+      <div class="content">
+        <p>Are you sure you want to delete the user ${user.Name}?</p>
       </div>
       <div class="actions">
-        <div class="ui black deny button" click.delegate="closeDialog()">
-          Nope
-        </div>
-        <div class="ui positive right labeled icon button">
-          Yep, that's me
+        <button type="button" class="ui button secondary icon" click.delegate="closeDialog()">
+          <i class="remove icon"></i>
+            No
+        </button>
+        <button type="button" class="ui button positive icon" click.delegate="deleteUser()">
           <i class="checkmark icon"></i>
-        </div>
+          Yes, delete
+        </button>
       </div>
-    </div></div>
+    </div>
+  </div>
+
+
+<!--
+  <div class="ui dimmer modals page transition visible active" style="display: flex !important;">
+  <div class="ui tiny test modal transition visible active" style="display: block !important;">
+    <div class="header">
+      Delete Your Account
+    </div>
+    <div class="content">
+      <p>Are you sure you want to delete your account</p>
+    </div>
+    <div class="actions">
+      <div class="ui negative button">
+        No
+      </div>
+      <div class="ui positive right labeled icon button">
+        Yes
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+-->
 
 </template>
