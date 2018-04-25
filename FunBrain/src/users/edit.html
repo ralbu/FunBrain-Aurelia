@@ -2,25 +2,15 @@
 
   <require from="./user-form"></require>
 
-  <form submit.delegate="save(user)">
+  <div>
+    <h2>Edit User</h2>
+    <form submit.delegate="save(user)">
 
-  <user-form user.bind="user"></user-form>
-  <button type="submit" class="ui button primary">Save user</button>
-    <a route-href="route:users">Cancel</a>
+      <user-form user.bind="user"></user-form>
+      <button type="submit" class="ui button primary">Save user</button>
+      <a route-href="route:users">Cancel</a>
 
-  </form>
+    </form>
 
-  <!--  <div class="ui raised segment">
-      <h2 class="ui header">Edit User</h2>
-      <div class="ui form">
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" value.bind="user.name">
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" value.bind="user.email">
-        </div>
-      </div>
-    </div>-->
+  </div>
 </template>

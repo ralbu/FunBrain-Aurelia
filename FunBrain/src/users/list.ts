@@ -7,9 +7,8 @@ export class UserList {
 
   private userService: UserService;
   private users: UserModel[];
+  private deletingUser: UserModel;
 
-  // cl = "visible active";
-  // cl2 = "visible active"
   private isModal: boolean;
   private modalStyleParent: string = '';
   private modalStyleInner: string = '';
@@ -22,23 +21,25 @@ export class UserList {
     this.users = await this.userService.getUsers();
   }
 
-  showModal() {
+  showModal(user: UserModel) {
+    this.deletingUser = user;
     this.isModal = true;
     this.modalStyleParent = 'display: flex !important;';
     this.modalStyleInner = 'display: block !important;';
   }
 
   async deleteUser() {
-    this.noModal();
+    this.hideModal();
 
-    await this.userService.deleteUser(1);
+    await this.userService.deleteUser(this.deletingUser.id);
+    this.users = await this.userService.getUsers();
   }
 
   closeDialog(): void {
-    this.noModal();
+    this.hideModal();
   }
 
-  private noModal(): void {
+  private hideModal(): void {
     this.isModal = false;
     this.modalStyleParent = '';
     this.modalStyleInner = '';
