@@ -1,4 +1,58 @@
 <template>
   <h2>Game</h2>
-  <p>msg: ${message}</p>
+
+
+  <!--  <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui column ">
+          <a class="item">
+            Home
+          </a>
+          <a class="item">
+            Messages
+          </a>
+          <a class="item active">
+            Friends
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <p>col 2</p>
+      </div>
+    </div>
+
+    <br/>-->
+
+  <div class="ui equal width stackable internally celled grid">
+    <div class="ui center aligned row">
+      <div class="ui column">
+        <div>
+          <div class="ui header">Users in game</div>
+
+          <div class="ui labeled button">
+            <div class="ui icon button">
+              <i class="fork icon"></i>
+            </div>
+            <a class="ui basic label">
+              2,048
+            </a>
+          </div>
+          <!--<div class="ui list compact segments">-->
+            <!--<div repeat.for="user of users" class="ui segment">Select users for the game - ${user.name}</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+      <div class="ui column">
+        <div>
+          <div class="ui header">Users in game</div>
+          <div class="ui list compact segments">
+            <div repeat.for="user of users" class="ui segment">Select users for the game - ${user.name}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
 </template>

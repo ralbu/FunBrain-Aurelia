@@ -1,6 +1,6 @@
 import UserService from "./user-service";
-import {autoinject} from "aurelia-framework";
-import UserModel from "./user-model";
+import {autoinject} from 'aurelia-framework';
+import UserModel from './user-model';
 
 @autoinject
 export class UserList {
