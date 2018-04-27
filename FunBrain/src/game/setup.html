@@ -29,19 +29,46 @@
         <div>
           <div class="ui header">Users in game</div>
 
-          <div class="ui labeled button">
-            <div class="ui icon button">
-              <i class="fork icon"></i>
+          <div>
+            <!--<div repeat.for="user of users" class="ui segment">-->
+            <div class="ui one column grid padded small">
+
+              <div repeat.for="user of users" class="row small-padding">
+                <div class="column">
+                  <div>
+                    <div class="ui left labeled button" tabindex="0">
+                      <a class="ui basic label">user: ${user.name}</a>
+                      <div class="ui icon button">
+                        <i class="chevron right icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <a class="ui basic label">
-              2,048
-            </a>
           </div>
-          <!--<div class="ui list compact segments">-->
-            <!--<div repeat.for="user of users" class="ui segment">Select users for the game - ${user.name}</div>-->
           <!--</div>-->
         </div>
       </div>
+      <!--<div class="ui list compact segments">-->
+      <!--<div repeat.for="user of users" class="ui segment">-->
+      <!--<p>user</p>-->
+      <!--<div class="ui left labeled button" tabindex="0">-->
+      <!--<p class="ui basic label">-->
+      <!--1,049-->
+      <!--</p>-->
+      <!--<div class="ui icon button">-->
+      <!--<i class="fork icon"></i>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="ui list compact segments">-->
+      <!--<div repeat.for="user of users" class="ui segment">Select users for the game - ${user.name}</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
       <div class="ui column">
         <div>
           <div class="ui header">Users in game</div>

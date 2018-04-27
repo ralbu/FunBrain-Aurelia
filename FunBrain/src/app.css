@@ -2,4 +2,10 @@
   border: 1px red solid;
 }
 
+
 @import "./vendor/semantic.min.css";
+
+.small-padding {
+
+  padding: 0.5rem !important;
+}
