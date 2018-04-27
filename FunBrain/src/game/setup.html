@@ -1,28 +1,6 @@
 <template>
   <h2>Game</h2>
 
-
-  <!--  <div class="ui grid">
-      <div class="four wide column">
-        <div class="ui column ">
-          <a class="item">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item active">
-            Friends
-          </a>
-        </div>
-      </div>
-      <div class="column">
-        <p>col 2</p>
-      </div>
-    </div>
-
-    <br/>-->
-
   <div class="ui equal width stackable internally celled grid">
     <div class="ui center aligned row">
       <div class="ui column">
@@ -30,8 +8,7 @@
           <div class="ui header">Users in game</div>
 
           <div>
-            <!--<div repeat.for="user of users" class="ui segment">-->
-            <div class="ui one column grid padded small">
+            <div class="ui one column grid">
 
               <div repeat.for="user of users" class="row small-padding">
                 <div class="column">
@@ -47,39 +24,38 @@
               </div>
             </div>
           </div>
-          <!--</div>-->
         </div>
       </div>
-      <!--<div class="ui list compact segments">-->
-      <!--<div repeat.for="user of users" class="ui segment">-->
-      <!--<p>user</p>-->
-      <!--<div class="ui left labeled button" tabindex="0">-->
-      <!--<p class="ui basic label">-->
-      <!--1,049-->
-      <!--</p>-->
-      <!--<div class="ui icon button">-->
-      <!--<i class="fork icon"></i>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<div class="ui list compact segments">-->
-      <!--<div repeat.for="user of users" class="ui segment">Select users for the game - ${user.name}</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
       <div class="ui column">
         <div>
-          <div class="ui header">Users in game</div>
-          <div class="ui list compact segments">
-            <div repeat.for="user of users" class="ui segment">Select users for the game - ${user.name}</div>
+          <div class="ui header">Game Info</div>
+          <div class="ui one column grid">
+            <div class="column">
+
+              <p>form here</p>
+              <form class="ui form">
+                <div class="fields">
+                  <div class="field">
+                    <label>Number of Rounds</label>
+                    <input type="text" placeholder="no of rounds">
+                  </div>
+                  <div class="field">
+                    <label>Number of Rounds</label>
+                    <input type="text" placeholder="no of rounds">
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+
           </div>
         </div>
       </div>
+
+
     </div>
   </div>
 
 
-  </div>
 </template>
