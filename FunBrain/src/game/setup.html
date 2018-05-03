@@ -1,9 +1,9 @@
 <template>
   <h2>Game</h2>
 
-  <div class="ui equal width stackable internally celled grid">
+  <div class="ui equal width stackable internally grid">
     <div class="ui center aligned row">
-      <div class="ui column">
+      <div class="ui column raised segment">
         <div>
           <div class="ui header">Users in game</div>
 
@@ -13,8 +13,8 @@
               <div repeat.for="user of users" class="row small-padding">
                 <div class="column">
                   <div>
-                    <div class="ui left labeled button" tabindex="0">
-                      <a class="ui basic label">user: ${user.name}</a>
+                    <div class="ui left labeled button" click.delegate="addUserToGame(user)">
+                      <p class="ui basic label">user: ${user.name}</p>
                       <div class="ui icon button">
                         <i class="chevron right icon"></i>
                       </div>
@@ -22,31 +22,45 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
-      <div class="ui column">
+      <div class="ui column raised segment">
         <div>
           <div class="ui header">Game Info</div>
           <div class="ui one column grid">
             <div class="column">
 
-              <p>form here</p>
               <form class="ui form">
                 <div class="fields">
                   <div class="field">
                     <label>Number of Rounds</label>
-                    <input type="text" placeholder="no of rounds">
+                    <input type="number" placeholder="no of rounds" required value.bind="noOfRounds">
                   </div>
                   <div class="field">
-                    <label>Number of Rounds</label>
-                    <input type="text" placeholder="no of rounds">
+                    <label>Max Guess No</label>
+                    <input type="number" placeholder="max guess number" value.bind="maxGuessNo">
                   </div>
-
                 </div>
-
               </form>
+
+              <div>
+
+                <div repeat.for="user of selectedUsers" class="row small-padding">
+                  <div class="column">
+                    <div>
+                      <div class="ui left labeled button" click.delegate="removeUserFromGame(user)">
+                        <a class="ui basic label">user: ${user.name}</a>
+                        <div class="ui icon button">
+                          <i class="windows close icon"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -54,6 +68,11 @@
       </div>
 
 
+    </div>
+    <div class="ui aligned  row">
+      <div class="ui column">
+        <button type="button" class="ui button positive icon" click.delegate="startGame()">Start Game</button>
+      </div>
     </div>
   </div>
 
