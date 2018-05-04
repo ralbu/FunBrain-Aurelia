@@ -1,18 +1,22 @@
 import {autoinject} from 'aurelia-framework';
 import UserService from '../users/user-service';
 import UserModel from '../users/user-model';
+import {GameModel} from "./game-model";
+import {GameService} from "./game-service";
 
 @autoinject
 export class Setup {
   private userService: UserService;
+  private gameService: GameService;
   private users: UserModel[] = [];
   private selectedUsers: UserModel[] = [];
   private noOfRounds: number = 0;
   private maxGuessNo: number = 0;
 
 
-  constructor(userService: UserService) {
+  constructor(userService: UserService, gameService: GameService) {
     this.userService = userService;
+    this.gameService = gameService;
   }
 
   async activate() {
@@ -37,9 +41,12 @@ export class Setup {
   }
 
   startGame(){
-    console.log('Start with', this.selectedUsers);
 
-    let gameModel = 
+    let selectedUserIds = this.selectedUsers.map(u => u.id);
+
+    let gameModel = new GameModel(this.noOfRounds, this.maxGuessNo, selectedUserIds)
+
+    this.gameService.StartGame(gameModel);
   }
 
 }
