@@ -50,7 +50,7 @@ export class Start {
 
     let gameModel = new GameModel(this.noOfRounds, this.maxGuessNo, selectedUserIds)
 
-    let gameId = await this.gameService.StartGame(gameModel);
+    let gameId = await this.gameService.startGame(gameModel);
 
 
     this.router.navigateToRoute('running-game', {id: gameId});

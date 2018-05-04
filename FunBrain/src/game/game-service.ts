@@ -12,7 +12,7 @@ export default class GameService {
   }
 
 
-  public async StartGame(gameRequest: GameModel): Promise<Response> {
+  public async startGame(gameRequest: GameModel): Promise<Response> {
 
     let gameUrl = 'game/start'
     let response = await this.httpClient.fetch(gameUrl, {
@@ -20,6 +20,14 @@ export default class GameService {
       headers: {'Content-Type': 'application/json'},
       body: json(gameRequest)
     });
+
+    return response.json();
+  }
+
+  public async getUsers(gameId: string): Promise<Response> {
+
+    let url = `game/${gameId}/users`;
+    let response = await this.httpClient.fetch(url);
 
     return response.json();
   }
