@@ -13,26 +13,8 @@ export class App {
       {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/list'),  title: 'Users', nav: true},
       {route: 'users/create', name: 'create-user', moduleId: PLATFORM.moduleName('./users/create'),  title: 'Create user', nav: true},
       {route: 'users/:id/edit', name: 'edit-user', moduleId: PLATFORM.moduleName('./users/edit'),  title: 'Edit user'},
-      {route: 'game/setup', name: 'start-game', moduleId: PLATFORM.moduleName('./game/setup'),  title: 'Start game', nav:true}
-
-      // {route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/user-list'),  title: 'Users'}
-      // { route: ['', 'about'],       name: 'about',       moduleId: 'about' }
-      // { route: 'about',  moduleId: 'about', name:'about' }
-      // { route: ['', 'about'], name: 'about', moduleId: PLATFORM.moduleName('about')}
+      {route: 'game/start', name: 'start-game', moduleId: PLATFORM.moduleName('./game/start'),  title: 'Start game', nav:true},
+      {route: 'game/running', name: 'running-game', moduleId: PLATFORM.moduleName('./game/running'),  title: 'Game', nav:false}
     ]);
   }
-
-  /*
-  configureRouter(config: RouterConfiguration, router: Router) {
-    this.router = router;
-    config.title = 'FunBrain title router';
-    config.map([
-      {route: '', redirect: 'users'},
-      { route: 'about',  moduleId: 'about', name:'about' }
-      // {route: 'users', name: 'users', moduleId: './users/user-list', nav: true, title: 'List'}
-    ])
-
-  }
- */
-
 }

@@ -1,7 +1,7 @@
-import UserService from "./user-service";
-import {autoinject} from "aurelia-framework";
-import UserModel from "./user-model";
-import {Router} from "aurelia-router";
+import UserService from './user-service';
+import {autoinject} from 'aurelia-framework';
+import UserModel from './user-model';
+import {Router} from 'aurelia-router';
 
 @autoinject
 export class UserEdit {
@@ -22,6 +22,6 @@ export class UserEdit {
 
     async save(user){
       await this.userService.updateUser(user);
-      this.router.navigateToRoute("users");
+      this.router.navigateToRoute('users');
     }
 }

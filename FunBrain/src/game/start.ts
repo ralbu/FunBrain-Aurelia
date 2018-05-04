@@ -1,22 +1,26 @@
 import {autoinject} from 'aurelia-framework';
 import UserService from '../users/user-service';
 import UserModel from '../users/user-model';
-import {GameModel} from "./game-model";
-import {GameService} from "./game-service";
+import GameModel from './game-model';
+import GameService from './game-service';
+import {Router} from 'aurelia-router';
 
 @autoinject
-export class Setup {
+export class Start {
   private userService: UserService;
   private gameService: GameService;
+  private router: Router;
+
   private users: UserModel[] = [];
   private selectedUsers: UserModel[] = [];
   private noOfRounds: number = 0;
   private maxGuessNo: number = 0;
 
 
-  constructor(userService: UserService, gameService: GameService) {
+  constructor(userService: UserService, gameService: GameService, router: Router) {
     this.userService = userService;
     this.gameService = gameService;
+    this.router = router;
   }
 
   async activate() {
@@ -40,13 +44,15 @@ export class Setup {
     collection.splice(index, 1);
   }
 
-  startGame(){
+  async startGame() {
 
     let selectedUserIds = this.selectedUsers.map(u => u.id);
 
     let gameModel = new GameModel(this.noOfRounds, this.maxGuessNo, selectedUserIds)
 
-    this.gameService.StartGame(gameModel);
+    let gameId = await this.gameService.StartGame(gameModel);
+
+    this.router.navigateToRoute('running-game');
   }
 
 }

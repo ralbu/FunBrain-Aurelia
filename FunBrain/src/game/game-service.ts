@@ -1,9 +1,9 @@
 import {autoinject} from 'aurelia-framework';
-import {HttpClient, json} from "aurelia-fetch-client";
-import {GameModel} from "./game-model";
+import {HttpClient, json} from 'aurelia-fetch-client';
+import GameModel from './game-model';
 
 @autoinject
-export class GameService {
+export default class GameService {
   private httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
