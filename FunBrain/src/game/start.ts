@@ -52,7 +52,8 @@ export class Start {
 
     let gameId = await this.gameService.StartGame(gameModel);
 
-    this.router.navigateToRoute('running-game');
+
+    this.router.navigateToRoute('running-game', {id: gameId});
   }
 
 }

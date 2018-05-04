@@ -14,7 +14,7 @@ export class App {
       {route: 'users/create', name: 'create-user', moduleId: PLATFORM.moduleName('./users/create'),  title: 'Create user', nav: true},
       {route: 'users/:id/edit', name: 'edit-user', moduleId: PLATFORM.moduleName('./users/edit'),  title: 'Edit user'},
       {route: 'game/start', name: 'start-game', moduleId: PLATFORM.moduleName('./game/start'),  title: 'Start game', nav:true},
-      {route: 'game/running', name: 'running-game', moduleId: PLATFORM.moduleName('./game/running'),  title: 'Game', nav:false}
+      {route: 'game/:id/running', name: 'running-game', moduleId: PLATFORM.moduleName('./game/running'),  title: 'Game', nav:false}
     ]);
   }
 }

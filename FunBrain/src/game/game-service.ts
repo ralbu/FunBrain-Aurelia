@@ -21,7 +21,7 @@ export default class GameService {
       body: json(gameRequest)
     });
 
-    return response;
+    return response.json();
   }
 
 }
