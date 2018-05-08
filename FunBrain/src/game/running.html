@@ -5,6 +5,18 @@
 
       <div class="ui column raised segment">
         <div class="ui header">${message}</div>
+
+
+
+        <form class="ui form">
+
+            <div class="inline field" repeat.for="user of users">
+              <label class="game-running-user-name">${user.name}</label>
+              <input class="game-running-no" type="number" />
+            </div>
+
+        </form>
+
       </div>
     </div>
   </div>

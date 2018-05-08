@@ -1,6 +1,7 @@
 import {autoinject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import GameModel from './game-model';
+import UserModel from "../users/user-model";
 
 @autoinject
 export default class GameService {
@@ -24,7 +25,7 @@ export default class GameService {
     return response.json();
   }
 
-  public async getUsers(gameId: string): Promise<Response> {
+  public async getUsers(gameId: string): Promise<UserModel[]> {
 
     let url = `game/${gameId}/users`;
     let response = await this.httpClient.fetch(url);

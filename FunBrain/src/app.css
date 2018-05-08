@@ -9,3 +9,10 @@
 
   padding: 0.5rem !important;
 }
+
+.game-running-user-name {
+  width: 150px !important;
+}
+.game-running-no {
+  width: 100px !important;
+}
