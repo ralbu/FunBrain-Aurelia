@@ -9,7 +9,7 @@ export default class UserService {
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
-    this.httpClient.configure(c => c.withBaseUrl('http://localhost:64885/api/'));
+    this.httpClient.configure(c => c.withBaseUrl('http://localhost:64884/api/'));
   }
 
   public async getUsers(): Promise<UserModel[]> {

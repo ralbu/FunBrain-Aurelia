@@ -10,10 +10,12 @@
 
         <form class="ui form">
 
-            <div class="inline field" repeat.for="user of users">
+            <div class="inline field" repeat.for="user of usersInGame">
               <label class="game-running-user-name">${user.name}</label>
-              <input class="game-running-no" type="number" />
+              <input class="game-running-no" type="number" value.bind="user.guessNumber" />
             </div>
+
+          <button type="submit" class="ui button positive" click.delegate="nextRound()">Next</button>
 
         </form>
 
