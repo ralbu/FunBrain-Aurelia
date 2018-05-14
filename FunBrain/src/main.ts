@@ -29,39 +29,18 @@ export function configure(aurelia: Aurelia) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
 
-  aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
-
-  // aurelia.start().then(() => aurelia.setRoot());
-
-  /*
-  function getHttp() {
-    let http = new HttpClient();
-    http.configure(config => {
-      config
-        .withBaseUrl('http://localhost:64885/api/');
-    });
-
-    return http;
+  function configureHttpClient() {
+    const baseUrl = 'http://localhost:64885/api/';
+    let httpClient = aurelia.container.invoke(HttpClient)
+      .configure(config => {
+        config
+          .useStandardConfiguration()
+          .withBaseUrl(baseUrl)
+      });
+    aurelia.container.registerInstance(HttpClient, httpClient);
   }
 
-  aurelia.container.registerInstance(HttpClient, getHttp());
-  */
+  configureHttpClient();
 
-
-  let httpClient = aurelia.container.invoke(HttpClient)
-    .configure(config => { config
-      .useStandardConfiguration()
-      .withBaseUrl('http://localhost:64885/api/')
-    });
-  aurelia.container.registerInstance(HttpClient, httpClient);
-
-
-
-  // let configureHttpClient = <ConfigureHttpClient>aurelia.container.get()
-  // aurelia.container.invoke(HttpClient).configure(config => {
-  //   config.useStandardConfiguration()
-  //     .withBaseUrl('http://localhost:64884/api/')
-  // })
-
-
+  aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }
