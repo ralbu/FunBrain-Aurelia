@@ -4,6 +4,7 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
+import {HttpClient} from "aurelia-fetch-client";
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
@@ -29,5 +30,38 @@ export function configure(aurelia: Aurelia) {
   }
 
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
+
   // aurelia.start().then(() => aurelia.setRoot());
+
+  /*
+  function getHttp() {
+    let http = new HttpClient();
+    http.configure(config => {
+      config
+        .withBaseUrl('http://localhost:64885/api/');
+    });
+
+    return http;
+  }
+
+  aurelia.container.registerInstance(HttpClient, getHttp());
+  */
+
+
+  let httpClient = aurelia.container.invoke(HttpClient)
+    .configure(config => { config
+      .useStandardConfiguration()
+      .withBaseUrl('http://localhost:64885/api/')
+    });
+  aurelia.container.registerInstance(HttpClient, httpClient);
+
+
+
+  // let configureHttpClient = <ConfigureHttpClient>aurelia.container.get()
+  // aurelia.container.invoke(HttpClient).configure(config => {
+  //   config.useStandardConfiguration()
+  //     .withBaseUrl('http://localhost:64884/api/')
+  // })
+
+
 }
