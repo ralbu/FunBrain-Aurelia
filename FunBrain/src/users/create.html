@@ -2,39 +2,22 @@
 
   <require from="./user-form"></require>
 
-  <h2>Create New User</h2>
-
-  <form submit.delegate="save(user)">
-    <div class="ui grid">
-      <div class="row">
-        <div class="column">
-          <user-form user.bind="user"></user-form>
+  <div>
+    <h2>Create New User</h2>
+    <form submit.delegate="save(user)">
+      <div class="ui grid">
+        <div class="row">
+          <div class="column">
+            <user-form user.bind="user"></user-form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <button type="submit" class="ui button primary">Save user</button>
+            <a route-href="route:users">Cancel</a>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="column">
-          <button type="submit" class="ui button primary">Save user</button>
-          <a route-href="route:users">Cancel</a>
-        </div>
-      </div>
-    </div>
-  </form>
-
-  <!--<div class="ui vertical stripe segment">-->
-    <!--<h2>Create New User</h2>-->
-
-    <!--<form submit.delegate="save(user)">-->
-      <!--<div class="row">-->
-        <!--<user-form user.bind="user"></user-form>-->
-      <!--</div>-->
-
-      <!--<div class="row">-->
-        <!--<div class="center aligned column">-->
-          <!--<button type="submit" class="ui button primary">Save user</button>-->
-          <!--<a route-href="route:users">Cancel</a>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</form>-->
-  <!--</div>-->
-
+    </form>
+  </div>
 </template>

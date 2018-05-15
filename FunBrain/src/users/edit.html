@@ -2,14 +2,23 @@
 
   <require from="./user-form"></require>
 
-  <div class="ui content">
+  <div>
     <h2>Edit User</h2>
     <form submit.delegate="save(user)">
+      <div class="ui grid">
+        <div class="row">
+          <div class="column">
+            <user-form user.bind="user"></user-form>
+          </div>
+        </div>
 
-      <user-form user.bind="user"></user-form>
-      <div class="ui">
-        <button type="submit" class="ui button primary">Save user</button>
-        <a route-href="route:users">Cancel</a>
+        <div class="row">
+          <div class="column">
+            <button type="submit" class="ui button primary">Save user</button>
+            <a route-href="route:users">Cancel</a>
+          </div>
+
+        </div>
       </div>
     </form>
 
