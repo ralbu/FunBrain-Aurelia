@@ -3,7 +3,7 @@
   <require from="./user-form"></require>
 
   <div>
-    <h2>Edit User</h2>
+    <h2 class="ui center aligned header">Edit User</h2>
     <form submit.delegate="save(user)">
       <div class="ui grid">
         <div class="row">
@@ -11,16 +11,14 @@
             <user-form user.bind="user"></user-form>
           </div>
         </div>
-
         <div class="row">
           <div class="column">
             <button type="submit" class="ui button primary">Save user</button>
             <a route-href="route:users">Cancel</a>
           </div>
-
         </div>
       </div>
     </form>
-
   </div>
+
 </template>
