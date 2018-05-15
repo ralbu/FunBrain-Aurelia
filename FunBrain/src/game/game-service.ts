@@ -11,7 +11,6 @@ export default class GameService {
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
-    this.httpClient.configure(c => c.withBaseUrl('http://localhost:64884/api/'));
   }
 
 
@@ -54,6 +53,5 @@ export default class GameService {
 
     return response.json();
   }
-
 
 }

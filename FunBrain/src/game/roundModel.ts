@@ -3,4 +3,8 @@ export default class RoundModel {
   guessNo: number;
   winnerId: number;
   roundNo: number;
+
+  constructor(){
+    this.roundNo = 0;
+  }
 }

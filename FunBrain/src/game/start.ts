@@ -4,6 +4,7 @@ import UserModel from '../users/user-model';
 import GameModel from './game-model';
 import GameService from './game-service';
 import {Router} from 'aurelia-router';
+import GameContext from "./game-context";
 
 @autoinject
 export class Start {
@@ -15,12 +16,14 @@ export class Start {
   private selectedUsers: UserModel[] = [];
   private noOfRounds: number = 0;
   private maxGuessNo: number = 0;
+  private gameContext: GameContext;
 
 
-  constructor(userService: UserService, gameService: GameService, router: Router) {
+  constructor(userService: UserService, gameService: GameService, router: Router, gameContex: GameContext) {
     this.userService = userService;
     this.gameService = gameService;
     this.router = router;
+    this.gameContext = gameContex;
   }
 
   async activate() {
@@ -47,6 +50,8 @@ export class Start {
   async startGame() {
 
     let selectedUserIds = this.selectedUsers.map(u => u.id);
+
+    this.gameContext.setGameNoOfRounds(this.noOfRounds);
 
     let gameModel = new GameModel(this.noOfRounds, this.maxGuessNo, selectedUserIds)
 
