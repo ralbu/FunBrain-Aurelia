@@ -20,7 +20,8 @@ export class Start {
   private maxGuessNo: number = 0;
   private gameContext: GameContext;
   private eventAggregator: EventAggregator;
-  private subscription: Subscription;
+  private addUserSubs: Subscription;
+  private removeUserSubs: Subscription;
 
 
   constructor(userService: UserService, gameService: GameService, router: Router, gameContex: GameContext, eventAggregator: EventAggregator) {
@@ -33,10 +34,17 @@ export class Start {
 
   async activate() {
     this.users = await this.userService.getUsers();
-    this.subscription = this.eventAggregator.subscribe('aclick', e=> {
-      console.log('subs: ', e.user);
+    this.addUserSubs = this.eventAggregator.subscribe('addUser', e => {
       this.addUserToGame(e.user);
-    })
+    });
+    this.removeUserSubs = this.eventAggregator.subscribe('removeUser', e => {
+      this.removeUserFromGame(e.user)
+    });
+  }
+
+  deactivate() {
+    this.addUserSubs.dispose();
+    this.removeUserSubs.dispose();
   }
 
   addUserToGame(user: UserModel) {

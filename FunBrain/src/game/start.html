@@ -13,7 +13,7 @@
                 <div repeat.for="user of users" class="row small-padding">
                   <div class="column">
 
-                    <user-component user.bind="user"></user-Component>
+                    <user-component user.bind="user" action.bind="'add'"></user-Component>
 
 <!--                    <div class="ui left labeled button" click.delegate="addUserToGame(user)">
                       <p class="ui basic label">user: ${user.name}</p>
@@ -48,12 +48,13 @@
 
                   <div repeat.for="user of selectedUsers" class="row small-padding">
                     <div class="column">
-                        <div class="ui left labeled button" click.delegate="removeUserFromGame(user)">
+                      <user-component user.bind="user" action.bind="'remove'"></user-component>
+<!--                        <div class="ui left labeled button" click.delegate="removeUserFromGame(user)">
                           <a class="ui basic label">user: ${user.name}</a>
                           <div class="ui icon button">
                             <i class="windows close icon"></i>
                           </div>
-                        </div>
+                        </div>-->
                     </div>
                   </div>
                 </div>

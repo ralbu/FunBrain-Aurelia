@@ -5,7 +5,8 @@ import UserModel from '../users/user-model';
 
 @autoinject()
 export class UserComponent {
-  @bindable user = new UserModel()
+  @bindable user = new UserModel();
+  @bindable action: string;
 
   private eventAggregator: EventAggregator;
 
@@ -13,12 +14,13 @@ export class UserComponent {
     this.eventAggregator = eventAggregator;
 }
 
+  actionOnUser(user: UserModel) {
 
-  addUserToGame(user: UserModel) {
-
-    this.eventAggregator.publish('aclick', {user});
-    // this.selectedUsers.push(user);
-
-    // this.removeUserFromCollection(this.users, user);
+    if (this.action === 'add') {
+      this.eventAggregator.publish('addUser', {user});
+    }
+    if (this.action === 'remove') {
+      this.eventAggregator.publish('removeUser', {user});
+    }
   }
 }
