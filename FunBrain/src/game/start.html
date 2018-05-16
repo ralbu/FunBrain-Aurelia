@@ -1,5 +1,7 @@
 <template>
 
+  <require from="./user-component"></require>
+
   <div>
     <h2 class="ui center aligned header">Game</h2>
 
@@ -10,12 +12,15 @@
               <div class="ui one column grid">
                 <div repeat.for="user of users" class="row small-padding">
                   <div class="column">
-                    <div class="ui left labeled button" click.delegate="addUserToGame(user)">
+
+                    <user-component user.bind="user"></user-Component>
+
+<!--                    <div class="ui left labeled button" click.delegate="addUserToGame(user)">
                       <p class="ui basic label">user: ${user.name}</p>
                       <div class="ui icon button">
                         <i class="chevron right icon"></i>
                       </div>
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>
