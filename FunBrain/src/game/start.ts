@@ -1,4 +1,6 @@
 import {autoinject} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
+import {Subscription} from 'aurelia-event-aggregator';
 import UserService from '../users/user-service';
 import UserModel from '../users/user-model';
 import GameModel from './game-model';
@@ -17,17 +19,24 @@ export class Start {
   private noOfRounds: number = 0;
   private maxGuessNo: number = 0;
   private gameContext: GameContext;
+  private eventAggregator: EventAggregator;
+  private subscription: Subscription;
 
 
-  constructor(userService: UserService, gameService: GameService, router: Router, gameContex: GameContext) {
+  constructor(userService: UserService, gameService: GameService, router: Router, gameContex: GameContext, eventAggregator: EventAggregator) {
     this.userService = userService;
     this.gameService = gameService;
     this.router = router;
     this.gameContext = gameContex;
+    this.eventAggregator = eventAggregator;
   }
 
   async activate() {
     this.users = await this.userService.getUsers();
+    this.subscription = this.eventAggregator.subscribe('aclick', e=> {
+      console.log('subs: ', e.user);
+      this.addUserToGame(e.user);
+    })
   }
 
   addUserToGame(user: UserModel) {
