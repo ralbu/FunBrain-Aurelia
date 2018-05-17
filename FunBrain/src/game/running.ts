@@ -26,9 +26,14 @@ export class Running {
   @computedFrom('round.roundNo')
   get roundInfo(): string {
 
-    let noOfRounds = this.gameContext.getNoOfRounds();
+    let roundMessage = `Round ${this.round.roundNo + 1}`;
 
-    return `Round ${this.round.roundNo} of ${noOfRounds}`;
+    let contextRound = this.gameContext.getNoOfRounds();
+    if (contextRound) {
+      roundMessage = roundMessage + ` of ${contextRound}`;
+    }
+
+    return roundMessage;
 }
 
   async activate(params) {
@@ -72,5 +77,6 @@ export class Running {
 
   }
 
+  // Next button should be Finsh on the last round
 
 }

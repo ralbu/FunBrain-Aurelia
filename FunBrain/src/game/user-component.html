@@ -2,7 +2,7 @@
   <div class="ui left labeled button" click.delegate="actionOnUser(user)">
     <p class="ui basic label">user: ${user.name}</p>
     <div class="ui icon button">
-      <i class="chevron right icon"></i>
+      <slot></slot>
     </div>
   </div>
 </template>
